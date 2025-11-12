@@ -16,9 +16,34 @@ Activity Steps:
 
 Discussion Questions:
 1 How does CI/CD improve collaboration in ML teams?
+
+Automated testing and validation
+consistent envs 
+faster feedback -> issues like broken code, dependency conflicts, poor model performance are caught early 
+version control 
+
 2 What happens if the evaluation score is below a defined threshold?
+
+fail pipeline automatically -> low quality models never deployed 
+log results 
+
 3 How can retraining or drift detection be integrated into this workflow?
+
+add job that periodically checks for changes in input data distributions 
+add scheduled workflow 
+continous evaluation 
+ci.yml may 
+on: 
+    schedule: 
+        -cron: "* * * * *" 
+
 4 What steps are needed to deploy this workflow to production (e.g., AWS, Kubernetes)?
+
+containerize model service 
+push container image to registry 
+ECS / EKS setup 
+add monitoring / alerting 
+extend git actions to deploy the latest passing model automatically to the production 
 
 Deliverables:
 1 GitHub repository link containing your implemented workflow.
